@@ -12,14 +12,9 @@ from tensorflow.keras.optimizers import RMSprop
 
 import tensorflow as tf
 
-#from keras.datasets import mnist
-#from keras.models import Model
-#from keras.layers import Input, Flatten, Dense, Dropout, Lambda
-#from keras.optimizers import RMSprop
-#from keras import backend as K
 
 num_classes = 10
-epochs = 20
+epochs = 10
 
 
 def euclidean_distance(vects):
@@ -34,9 +29,8 @@ def eucl_dist_output_shape(shapes):
 
 
 def contrastive_loss(y_true, y_pred):
-    '''Contrastive loss from Hadsell-et-al.'06
-    http://yann.lecun.com/exdb/publis/pdf/hadsell-chopra-lecun-06.pdf
-    '''
+    #Contrastive loss from Hadsell-et-al
+    
     margin = 1
     square_pred = tf.square(y_pred)
     margin_square = tf.square(tf.maximum(margin - y_pred, 0))
